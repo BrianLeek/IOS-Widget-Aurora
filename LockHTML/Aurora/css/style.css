@@ -1,0 +1,8 @@
+@font-face{font-family:Terpsichora-Digital-Clock;src:url(../fonts/Terpsichora-Digital-Clock.ttf);}
+@font-face{font-family:SamsungSans-Regular;src:url(../fonts/SamsungSans-Regular.ttf);}
+body{color:#fff;text-transform:uppercase;text-align:center;margin:0 auto;overflow:hidden;}
+.line1{color:white;width: 135.5px;margin-top: 0.5%;}
+.line2{color:white;width: 135.5px;margin-top: -0.5%;}
+#time{font-family:Terpsichora-Digital-Clock;margin-top: -7px;font-size: 75px;}
+#date{font-family:SamsungSans-Regular;margin-top: 0.6%;padding-bottom:15px;font-size: 16.5px;}
+#day-month{font-size: 13px;}
