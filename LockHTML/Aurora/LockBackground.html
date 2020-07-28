@@ -1,19 +1,81 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Aurora By Brian Leek</title>
-	<link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="scripts/jquery-1.6.4.min.js"></script>
-    <script type="text/javascript" src="scripts/custom.js"></script>
+<html><head>
+<title>Aurora by Brian (@Precutting). Based off LS EW200 by Eveyn (@ev_ynw)</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="Style.css" type="text/css" media="screen"/>
+<script type="text/javascript" charset="utf-8" src="Config.js"></script>
+<script type="text/javascript" charset="utf-8" src="Scripts/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="Scripts/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="Scripts/main.js"></script>
+<script type="text/javascript" charset="utf-8" src="Scripts/lang.js"></script>
 </head>
 
-<body>
+<body onload="init()">
 
 <hr class="line1" />
-<div id="time"></div>
-<div id="date"></div>
+<div id="Clock"><a id="hour"></a>:<a id="minute"></a><a id="second"></a></div>
+<div id="Cal"><a id="date"></a><a id="weekday"></a></div>
 <hr class="line2" />
 
-</body>
-</html>
+<div id="Weather">
+	<c style="margin-right:40px;"><a id="desc">wthr desc</a> <a id="temp">??&deg;</a></c>
+	<a id="LevelDisplay">??%</a>
+</div>
+
+<script type="text/javascript">
+	document.getElementById('Cal').style.color = "#" + CalColor;
+	document.getElementById('Weather').style.color = "#" + WeatherColor;
+	document.getElementById('Clock').style.color = "#" + ClockColor;
+	document.getElementById('LevelDisplay').style.color = "#" + LevelDisplayColor;
+
+	if(!Weather){
+      document.getElementById('Weather').style.visibility = "hidden";
+    } else {
+      document.getElementById('Weather').style.visibility = "visible";
+    }
+	
+	if(!Clock){
+      document.getElementById('Clock').style.visibility = "hidden";
+    } else {
+      document.getElementById('Clock').style.visibility = "visible";
+    }
+	
+	if(!Cal){
+      document.getElementById('Cal').style.visibility = "hidden";
+    } else {
+      document.getElementById('Cal').style.visibility = "visible";
+    }
+	
+	if(!LevelDisplay){
+      document.getElementById('LevelDisplay').style.visibility = "hidden";
+    } else {
+      document.getElementById('LevelDisplay').style.visibility = "visible";
+    }
+
+function mainUpdate(type){
+    if(type == "weather"){
+      document.getElementById('temp').innerHTML = weather.temperature + "&deg;";
+      document.getElementById('desc').innerHTML = weatherdesc[weather.conditionCode];
+    }
+	if(type == "battery"){
+      document.getElementById('LevelDisplay').innerHTML = batteryPercent + "%";
+    }
+}
+</script>
+
+<script>
+(function(){
+    'use strict';
+    if (window.innerWidth === 320) {
+        document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=0');
+    } else if (window.innerWidth === 414) {
+        document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1.104, maximum-scale=1.104, user-scalable=0');
+    } else if (window.innerWidth === 425) {
+        document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1.133, maximum-scale=1.133, user-scalable=0');
+    } else if (window.innerWidth === 432) {
+        document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1.152, maximum-scale=1.152, user-scalable=0');
+    }
+}());
+</script>
+</body></html>

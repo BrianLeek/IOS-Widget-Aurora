@@ -1,0 +1,53 @@
+body {
+	  text-align:center;
+	  overflow:hidden;
+      margin:0 auto;
+      font-weight:100;
+      text-transform:uppercase;
+      font-family:Terpsichora-Digital-Clock;	  
+}
+
+@font-face{
+      font-family:Terpsichora-Digital-Clock;
+      src:url(Fonts/Terpsichora-Digital-Clock.ttf);
+}
+
+#Weather {
+	font-family:Terpsichora-Digital-Clock;
+	text-align: center;
+	z-index: 10;
+	font-size: 11px;
+	letter-spacing: 0;
+	font-weight: bolder;
+}
+
+#Clock{
+	  font-family:Terpsichora-Digital-Clock;
+	  text-align:center;
+	  overflow:hidden;
+      margin:0 auto;
+	  z-index:10;
+	  margin-top: -7px;
+      font-size:75px;
+	  letter-spacing:-1;
+}
+
+#Cal{
+	  font-family:Terpsichora-Digital-Clock;
+	  text-align:center;
+	  overflow:hidden;
+	  padding-bottom:15px;
+	  font-size:16.5px;
+	  z-index:10;
+}
+
+#LevelDisplay{
+	  text-align:center;
+	  z-index:10;
+      font-size:11px;
+	  text-align: center;
+	  letter-spacing:0;
+}
+
+.line1{color:white;width: 135.5px;margin-top: 0.5%;}
+.line2{color:white;width: 135.5px;margin-top: -0.5%;}
