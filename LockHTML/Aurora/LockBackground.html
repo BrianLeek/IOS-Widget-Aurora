@@ -1,81 +1,91 @@
-<html><head>
-<title>Aurora by Brian (@Precutting). Based off LS EW200 by Eveyn (@ev_ynw)</title>
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<link rel="stylesheet" href="Style.css" type="text/css" media="screen"/>
-<script type="text/javascript" charset="utf-8" src="Config.js"></script>
-<script type="text/javascript" charset="utf-8" src="Scripts/jquery-1.6.4.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="Scripts/jquery.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="Scripts/main.js"></script>
-<script type="text/javascript" charset="utf-8" src="Scripts/lang.js"></script>
+<html>
+<head>
+	<title>Aurora by Brian (@Precutting). Based off LS EW200 by Eveyn (@ev_ynw)</title>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="Style.css" type="text/css" media="screen"/>
+	<script type="text/javascript" charset="utf-8" src="Config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="Scripts/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="Scripts/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="Scripts/main.js"></script>
+	<script type="text/javascript" charset="utf-8" src="Scripts/lang.js"></script>
 </head>
 
 <body onload="init()">
+	<div id="TopLine"><hr class="line1" /></div>
+	<div id="Clock"><a id="hour"></a>:<a id="minute"></a><a id="second"></a></div>
+	<div id="Cal"><a id="date"></a><a id="weekday"></a></div>
+	<div id="BottomLine"><hr class="line2" /></div>
+	<div id="Weather"><div style="￼text-align:center;float:left;padding-left:118px"><a id="desc">??????</a> <a id="temp">??&deg;</a></div></div><a style="text-align:center;padding-right:57px" id="LevelDisplay">??%</a>
 
-<hr class="line1" />
-<div id="Clock"><a id="hour"></a>:<a id="minute"></a><a id="second"></a></div>
-<div id="Cal"><a id="date"></a><a id="weekday"></a></div>
-<hr class="line2" />
+	<script type="text/javascript">
+		document.getElementById('TopLine').style.color = "#" + TopLineColor;
+		document.getElementById('Clock').style.color = "#" + ClockColor;
+		document.getElementById('Cal').style.color = "#" + CalColor;
+		document.getElementById('BottomLine').style.color = "#" + BottomLineColor;
+		document.getElementById('Weather').style.color = "#" + WeatherColor;
+		document.getElementById('LevelDisplay').style.color = "#" + LevelDisplayColor;
 
-<div id="Weather">
-	<c style="margin-right:40px;"><a id="desc">wthr desc</a> <a id="temp">??&deg;</a></c>
-	<a id="LevelDisplay">??%</a>
-</div>
+		if(!TopLine){
+		  document.getElementById('TopLine').style.display = "none";
+		} else {
+		  document.getElementById('TopLine').style.display = "block";
+		}
+		
+		if(!Clock){
+		  document.getElementById('Clock').style.display = "none";
+		} else {
+		  document.getElementById('Clock').style.display = "block";
+		}
+		
+		if(!Cal){
+		  document.getElementById('Cal').style.display = "none";
+		} else {
+		  document.getElementById('Cal').style.display = "block";
+		}
+		
+		if(!BottomLine){
+		  document.getElementById('BottomLine').style.display = "none";
+		} else {
+		  document.getElementById('BottomLine').style.display = "block";
+		}
+		
+		if(!Weather){
+		  document.getElementById('Weather').style.display = "none";
+		} else {
+		  document.getElementById('Weather').style.display = "block";
+		}
+		
+		if(!LevelDisplay){
+		  document.getElementById('LevelDisplay').style.display = "none";
+		} else {
+		  document.getElementById('LevelDisplay').style.display = "block";
+		}
 
-<script type="text/javascript">
-	document.getElementById('Cal').style.color = "#" + CalColor;
-	document.getElementById('Weather').style.color = "#" + WeatherColor;
-	document.getElementById('Clock').style.color = "#" + ClockColor;
-	document.getElementById('LevelDisplay').style.color = "#" + LevelDisplayColor;
+	function mainUpdate(type){
+		if(type == "weather"){
+		document.getElementById('desc').innerHTML = weatherdesc[weather.conditionCode];
 
-	if(!Weather){
-      document.getElementById('Weather').style.visibility = "hidden";
-    } else {
-      document.getElementById('Weather').style.visibility = "visible";
-    }
-	
-	if(!Clock){
-      document.getElementById('Clock').style.visibility = "hidden";
-    } else {
-      document.getElementById('Clock').style.visibility = "visible";
-    }
-	
-	if(!Cal){
-      document.getElementById('Cal').style.visibility = "hidden";
-    } else {
-      document.getElementById('Cal').style.visibility = "visible";
-    }
-	
-	if(!LevelDisplay){
-      document.getElementById('LevelDisplay').style.visibility = "hidden";
-    } else {
-      document.getElementById('LevelDisplay').style.visibility = "visible";
-    }
+		document.getElementById('temp').innerHTML = weather.temperature + "&deg;";     
+		}
+		if(type == "battery"){
+		  document.getElementById('LevelDisplay').innerHTML = batteryPercent + "%";
+		}
+	}
+	</script>
 
-function mainUpdate(type){
-    if(type == "weather"){
-      document.getElementById('temp').innerHTML = weather.temperature + "&deg;";
-      document.getElementById('desc').innerHTML = weatherdesc[weather.conditionCode];
-    }
-	if(type == "battery"){
-      document.getElementById('LevelDisplay').innerHTML = batteryPercent + "%";
-    }
-}
-</script>
-
-<script>
-(function(){
-    'use strict';
-    if (window.innerWidth === 320) {
-        document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=0');
-    } else if (window.innerWidth === 414) {
-        document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1.104, maximum-scale=1.104, user-scalable=0');
-    } else if (window.innerWidth === 425) {
-        document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1.133, maximum-scale=1.133, user-scalable=0');
-    } else if (window.innerWidth === 432) {
-        document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1.152, maximum-scale=1.152, user-scalable=0');
-    }
-}());
-</script>
+	<script>
+	(function(){
+		'use strict';
+		if (window.innerWidth === 320) {
+			document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=0');
+		} else if (window.innerWidth === 414) {
+			document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1.104, maximum-scale=1.104, user-scalable=0');
+		} else if (window.innerWidth === 425) {
+			document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1.133, maximum-scale=1.133, user-scalable=0');
+		} else if (window.innerWidth === 432) {
+			document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1.152, maximum-scale=1.152, user-scalable=0');
+		}
+	}());
+	</script>
 </body></html>

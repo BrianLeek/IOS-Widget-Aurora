@@ -3,14 +3,20 @@ Configurations
 Credits: Original code by Dacal & Junesiphone. Modified by Evelyn. Modified again by Novinha, and again by Brian.
 */
 
-var Weather = true; //Display weather "true" or "false".
-var WeatherColor = "ffffff"; // Color is in hexadecimal format.
+var TopLine = true; //Display line display to "true" or "false".
+var TopLineColor = "ffffff"; // Color is in hexadecimal format.
 
 var Clock = "12h"; //Display time in "12h" or "24h".
 var ClockColor = "ffffff"; // Color is in hexadecimal format.
 
 var Cal = true; //Display day "true" or "false".
 var CalColor = "ffffff"; // Color is in hexadecimal format.
+
+var BottomLine = true; //Display line display to "true" or "false".
+var BottomLineColor = "ffffff"; // Color is in hexadecimal format.
+
+var Weather = true; //Display weather "true" or "false".
+var WeatherColor = "ffffff"; // Color is in hexadecimal format.
 
 var LevelDisplay = true; //Display battery % "true" or "false".
 var LevelDisplayColor = "ffffff"; // Color is in hexadecimal format.
